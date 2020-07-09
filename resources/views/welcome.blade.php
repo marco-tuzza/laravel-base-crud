@@ -28,4 +28,5 @@
     @endforeach
     </tbody>
   </table>
+  <a href="{{ route('students.create') }}">Crea un nuovo profilo studente</a>
 @endsection

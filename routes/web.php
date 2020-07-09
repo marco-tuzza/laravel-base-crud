@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'StudentController@index');
+
+Route::resource('students', 'StudentController');

@@ -3,7 +3,7 @@
 @section('page-title', 'Dettaglio studente')
 
 @section('content')
-<h1>Lista Studenti</h1>
+<h1>Dettaglio studente</h1>
 <table class="table">
     <thead class="thead-dark">
       <tr>

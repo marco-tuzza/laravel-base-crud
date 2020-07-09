@@ -12,6 +12,7 @@
         <th scope="col">Cognome</th>
         <th scope="col">Matricola</th>
         <th scope="col">Email</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
         <td>{{$studente->cognome}}</td>
         <td>{{$studente->matricola}}</td>
         <td>{{$studente->email}}</td>
+        <td><a class="btn btn-info" href="{{ route('students.show', ['student' => $studente->id]) }}">Dettagli Studente</a></td>
     </tr>
     @endforeach
     </tbody>

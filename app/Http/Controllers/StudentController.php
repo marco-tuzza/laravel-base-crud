@@ -35,7 +35,13 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $request->validate([
+            'nome' => 'required | max:255',
+            'cognome' => 'required | max:255',
+            'matricola' => 'required | numeric | min: 1000 | max: 9999',
+            'email' => 'required'
+        ]);
         $dati = $request->all();
         $nuovo_studente = new Student();
         $nuovo_studente-> fill($dati);
@@ -63,7 +69,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        return view('edit', compact('student'));
     }
 
     /**
@@ -75,7 +82,16 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nome' => 'required | max:255',
+            'cognome' => 'required | max:255',
+            'matricola' => 'required | numeric | min: 1000 | max: 9999',
+            'email' => 'required'
+        ]);
+        $dati = $request->all();
+        $student = Student::find($id);
+        $student->update($dati);
+        return redirect()->route('students.index');
     }
 
     /**
@@ -86,6 +102,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student->delete();
+        return redirect()->route('students.index');
     }
 }

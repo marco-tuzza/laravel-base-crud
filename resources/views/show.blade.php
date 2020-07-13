@@ -24,5 +24,6 @@
     </tr>
     </tbody>
   </table>
+  <a class="btn btn-warning" href=" {{ route('students.edit', ['student'=>$student->id]) }}">Modifica dati studente</a>
   <a href=" {{route('students.index') }}">Torna alla lista</a>
 @endsection
